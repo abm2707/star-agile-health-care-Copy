@@ -29,5 +29,5 @@ spec:
     app: healthcare
   ports:
   - port: 80
-    targetPort: 8080  # Must match containerPort above
+    targetPort: 8082  # Must match containerPort above
     nodePort: 30036   # Optional: specify a NodePort between 30000–32767
