@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcare-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthcare
+  template:
+    metadata:
+      labels:
+        app: healthcare
+    spec:
+      containers:
+      - name: healthcare-container
+        image: akhilbmenon/startagile-healthcare:latest
+        ports:
+        - containerPort: 8080  # Update this if your app runs on a different port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: healthcare-service
+spec:
+  type: NodePort
+  selector:
+    app: healthcare
+  ports:
+  - port: 80
+    targetPort: 8080  # Must match containerPort above
+    nodePort: 30036   # Optional: specify a NodePort between 30000–32767
