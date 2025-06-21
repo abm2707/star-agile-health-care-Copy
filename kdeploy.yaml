@@ -16,7 +16,7 @@ spec:
       - name: healthcare-container
         image: akhilbmenon/startagile-healthcare:latest
         ports:
-        - containerPort: 8080  # Update this if your app runs on a different port
+        - containerPort: 8080 
 
 ---
 apiVersion: v1
